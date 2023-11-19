@@ -1,0 +1,15 @@
+<h1>Boards#index</h1>
+<p>Find me in app/views/boards/index.html.erb</p>
+<table>
+<tr>
+<th>title</th>
+</tr>
+<% @boards.each do |board| %>
+<tr>
+<td>
+  <%= link_to board.title, board_path(board) %>
+</td>
+</tr>
+<% end %>
+</table>
+<%= link_to "new", new_board_path %>

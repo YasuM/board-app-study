@@ -1,0 +1,20 @@
+<h1><%= @board.title %></h1>
+<h2>body</h2>
+<%= simple_format(@board.body) %>
+
+
+<h2>comment list</h2>
+<% if @board_comment.errors.any? %>
+  <% @board_comment.errors.full_messages.each do |message| %>
+    <div> <%= message %> </div>
+  <% end %>
+<% end %>
+<%= form_for @board_comment do |f| %>
+  <%= f.hidden_field :board_id, :value => @board.id %>
+  <%= f.text_area :comment %>
+  <%= f.submit "create" %>
+
+<% end %>
+<% @comments.each do |comment| %>
+<li> <%= comment.comment %> </li>
+<% end %>
