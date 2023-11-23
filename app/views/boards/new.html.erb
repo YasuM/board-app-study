@@ -7,7 +7,7 @@
 <% end %>
 
 
-<%= form_for @board do |f| %>
+<%= form_with model: @board do |f| %>
 <div>
    <%= f.label :title %>
    <%= f.text_field :title %>
